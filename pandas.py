@@ -60,16 +60,6 @@ df=pandas.DataFrame(lst)
 df.columns=["Name","Date of Birth"]
 print(df) #This will return with two columns because we every item in the list has two items
 
-lst=[["Ibrahim", "Guvenc","1983","Norwegian","Data Engineer","Kristiansand"],["Kader","Guvenc","1988","Norwegian","Tax Inspector","Kristiansand"]]
-df=pandas.DataFrame(lst)
-df.columns=["Name","Surname","Birthdate","Natioanlity","Job","City"]
-# df=pandas.dataFrame(lst, columns=["Name","Surname","Birthdate","Natioanlity","Job","City"])
-#The code above do the same outcome as the previous the three code lines
-print(df) #This will return as follows:
-#Name Surname Birthdate Natioanlity            Job          City
-#0  Ibrahim  Guvenc      1983   Norwegian  Data Engineer  Kristiansand
-#1    Kader  Guvenc      1988   Norwegian  Tax Inspector  Kristiansand
-
 
 import pandas 
 df1=pandas.DataFrame([[2,4,5],[10,20,30]])
@@ -86,55 +76,6 @@ print(df1)#This will be seen as:
 
 df2=pandas.DataFrame([["Name","Surname"],["Ibrahim","Guvenc"],["Kader","Guvenc"]])
 print(df2)
-
-
-
-# 2:Using lists in dictionary to create dataframe:
-my_family={"Name":["Abraham","Naim","Kader","Pinar"], "Age":["36","7","32","4"],"Job":["Data Engineer","Student","Tax Inspector","Student"],
-           "Birthplace":["Sulusaray","Bahcelievler","Niksar","bahcelievler"]}
-df=pandas.DataFrame(my_family)
-print(df) #The output will be as follows:
-#Name Age            Job    Birthplace
-#0  Abraham  36  Data Engineer     Sulusaray
-#1    Pinar  32  Tax Inspector        Niksar
-#2    Kader   7        Student  Bahcelievler
-#3     Naim   4        Student  bahcelievler
-
-
-# 3:Dealing with Rows and Columns:
-#We can perform basic operations on rows/columns,selecting, deleting, adding, and renaming.
-#3.1. Colomns Selection:
-x=df["Name"]
-print(x) #This will return as follows:
-#0    Abraham
-#1      Pinar
-#2      Kader
-#3       Naim
-print(type(x)) # dtype: object
-print(df[["Name","Age"]])#we haver use two [] if we want to select more than one column
-#      Name Age
-#0  Abraham  36
-#1    Pinar  32
-#2    Kader   7
-#3     Naim   4
-print(df[["Job","Age","Name"]]) #we can also select columns by changing their normal orders
-#Row Selection:  DataFrame .loc[] method is used to retrieve rows from Pandas DataFrame. 
-first=df.loc[0]
-print(first) #This will return as follows:
-#Name                Abraham
-#Age                      36
-#Job           Data Engineer
-#Birthplace        Sulusaray
-print(type(first)) # dtype: object
-print(df.loc[1])
-
-#In order to select a single row using .iloc[], 
-#we can pass a single integer to .iloc[] function.
-print(df.iloc[0]) #This will return as follows:
-#Name                Abraham
-#Age                      36
-#Job           Data Engineer
-#Birthplace        Sulusaray
 
 dir(pandas.DataFrame()) #This returns all the methods for analyzing DataFrames in pandas
 country={"Norway":[500000,75000],"Turkey":[80000000,10000],"China":[2000000000,12000]}
@@ -153,7 +94,7 @@ print(df)
 print(df.loc[0])
 print(df[["Grade","Name"]])
 
-# 4:  How to Access Last and First Rows of DataFrame in Pandas:
+# 2:  How to Access Last and First Rows of DataFrame in Pandas:
 #.head() returns the rows from the beginning according to value inside ()
 print(df.head(1)) # This returns the forst row as follows:
  #Name  Grade  Date of Birth
